@@ -52,7 +52,7 @@
   justify-content: space-between;
   align-items: center;
   border-bottom: utils.pxToRem(1px) solid #eee;
-  padding-bottom: utils.pxToRem(10px);
+  height: utils.pxToRem(40px);
 
   .modal-title {
     font-size: utils.pxToRem(24px);

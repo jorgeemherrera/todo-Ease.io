@@ -21,7 +21,7 @@ const Home = () => {
   const dispatch = useDispatch();
   const tasks = useSelector((state: RootState) => state.tasks.tasks);
   const selectedTaskId = useSelector((state: RootState) => state.tasks.selectedTaskId);
-  const selectedTask = tasks.find((task) => task.id === selectedTaskId);
+  const selectedTask = tasks.find((task: { id: number; }) => task.id === selectedTaskId);
   
   const [isModalOpen, setModalOpen] = useState(false);
   const [isEditing, setIsEditing] = useState(false);

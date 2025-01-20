@@ -19,15 +19,15 @@
         border-bottom-right-radius: utils.pxToRem(12px);
 
         &::placeholder {
-            color: #6c757d; // Placeholder en modo claro
+            color: #6c757d;
         }
 
         [data-theme="dark"] & {
             background-color: #2D3748;
-            color: #e2e8f0; // Texto del input en modo oscuro
+            color: #e2e8f0;
 
             &::placeholder {
-                color: #a0aec0; // Placeholder en modo oscuro
+                color: #a0aec0;
             }
         }
 

@@ -66,14 +66,14 @@
                     z-index: 100;
 
                     &:hover {
-                        color: #007bff;
+                        color: #7F5FFF;
                     }
 
                     [data-theme="dark"] & {
                         color: #e2e8f0;
 
                         &:hover {
-                            color: #66b2ff;
+                            color: #7F5FFF;
                         }
                     }
                 }
@@ -107,10 +107,12 @@
                     color: inherit;
 
                     &:hover {
-                        background-color: #f0f0f0;
+                        background-color: #7F5FFF;
+                        border-radius: 8px;
+                        color: white;
 
                         [data-theme="dark"] & {
-                            background-color: #3b4251;
+                            background-color: #7F5FFF;
                         }
                     }
                 }

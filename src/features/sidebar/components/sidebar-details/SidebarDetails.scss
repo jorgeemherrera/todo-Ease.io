@@ -56,29 +56,29 @@
     }
 
     .sidebar-status-selector {
-      appearance: none;
-      padding: utils.pxToRem(8px);
-      border-radius: utils.pxToRem(8px);
-      border: utils.pxToRem(1px) solid #ddd;
-      background-color: #fff;
-      color: #333;
-      font-size: utils.pxToRem(16px);
-      cursor: pointer;
-      transition: border-color 0.3s, background-color 0.3s;
-
-      &:focus {
-        outline: none;
-        border-color: #6200ee;
-      }
-
-      [data-theme="dark"] & {
-        background-color: #4a5568;
-        color: #e2e8f0;
-        border-color: #2d3748;
-
-        &:hover {
-          background-color: #3b4251;
+        padding: utils.pxToRem(8px);
+        border-radius: utils.pxToRem(8px);
+        border: utils.pxToRem(1px) solid #ddd;
+        background-color: #fff;
+        color: #333;
+        font-size: utils.pxToRem(16px);
+        cursor: pointer;
+        transition: border-color 0.3s, background-color 0.3s;
+      
+        &:focus {
+          outline: none;
+          border-color: #6200ee;
+        }
+      
+        [data-theme="dark"] & {
+          background-color: #4a5568;
+          color: #e2e8f0;
+          border-color: #2d3748;
+      
+          &:hover {
+            background-color: #3b4251;
+          }
         }
       }
-    }
+      
   }

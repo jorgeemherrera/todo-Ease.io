@@ -1,6 +1,13 @@
 import { SidebarDetailsProps } from "@features/sidebar";
 import './SidebarDetails.scss';
 
+const statusTranslations: Record<string, string> = {
+  Open: "Abierto",
+  "In Progress": "En Progreso",
+  Completed: "Completado",
+  Overdue: "Vencido",
+};
+
 const SidebarDetails: React.FC<SidebarDetailsProps> = ({ task, onStatusChange }) => (
   <section>
     <p className="sidebar-description">{task.description}</p>
@@ -10,7 +17,9 @@ const SidebarDetails: React.FC<SidebarDetailsProps> = ({ task, onStatusChange })
     </p>
     <h4 className="sidebar-checklist-title">Estado</h4>
     <div className="sidebar-status-container">
-      <span className={`sidebar-status ${task.status.toLowerCase()}`}>{task.status}</span>
+      <span className={`sidebar-status ${task.status.toLowerCase()}`}>
+        {statusTranslations[task.status] || task.status}
+      </span>
       <select
         className="sidebar-status-selector"
         value={task.status}

@@ -24,14 +24,6 @@
     &-content {
         display: flex;
         height: 100vh;
-
-        @include utils.media-xs {
-            flex-direction: column;
-        }
-
-        @include utils.media-gtxs {
-            flex-direction: row;
-        }
     }
 
     &-header {

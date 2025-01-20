@@ -10,9 +10,8 @@ const TaskForm: React.FC<TaskFormProps> = ({ initialData, onSave, onCancel }) =>
   const [status, setStatus] = useState<"Open" | "In Progress" | "Completed" | "Overdue">(
     initialData?.status || "Open"
   );
-  const [checklist, setChecklist] = useState<ChecklistItem[]>(
-    initialData?.checklist || []
-  );
+  const [checklist, setChecklist] = useState<ChecklistItem[]>(initialData?.checklist || []);
+  const [error, setError] = useState("");
 
   useEffect(() => {
     const now = new Date().toISOString().split("T")[0];
@@ -29,8 +28,14 @@ const TaskForm: React.FC<TaskFormProps> = ({ initialData, onSave, onCancel }) =>
   };
 
   const handleSave = () => {
+    if (!title.trim() || !description.trim()) {
+      setError("Los campos de título y descripción son obligatorios.");
+      return;
+    }
+
     const now = new Date().toISOString().split("T")[0];
     const isOverdue = dueDate && dueDate < now;
+    setError("");
     onSave({
       id: initialData?.id || Date.now().toString(),
       title,
@@ -43,6 +48,7 @@ const TaskForm: React.FC<TaskFormProps> = ({ initialData, onSave, onCancel }) =>
 
   return (
     <div className="task-form">
+      {error && <p className="task-form-error">{error}</p>}
       <TaskFormDetails
         title={title}
         setTitle={setTitle}
