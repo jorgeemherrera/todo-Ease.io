@@ -198,12 +198,18 @@
     color: #484c54;
     cursor: pointer;
     transition: color 0.3s;
-  
-    &:hover {
-      color: #0056b3;
+    
+    [data-theme="dark"] & {
+        color: #ccc;
     }
-}
 
+}
+.edit-icon, .delete-icon{
+    color: #ccc;
+    background-color: #7f5fff;
+    border-radius: 5px;
+    padding: 2px;
+}
 
 .message-status-tag {
     display: inline-block;

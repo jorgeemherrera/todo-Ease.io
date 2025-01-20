@@ -1,15 +1,29 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { FunnelIcon, MagnifyingGlassIcon } from "@heroicons/react/16/solid";
 import { ChatHeaderProps } from "@features/chat/types";
-import './ChatHeader.scss';
+import "./ChatHeader.scss";
 
 const ChatHeader: React.FC<ChatHeaderProps> = ({ searchQuery, setSearchQuery, setSelectedFilter }) => {
   const [isFilterOpen, setFilterOpen] = useState(false);
+  const filterRef = useRef<HTMLDivElement>(null);
 
   const toggleFilterMenu = () => setFilterOpen((prev) => !prev);
   const handleFilterSelect = (filter: string) => {
     setSelectedFilter(filter);
     setFilterOpen(false);
+  };
+
+  useEffect(() => {
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
+  const handleClickOutside = (event: MouseEvent) => {
+    if (filterRef.current && !filterRef.current.contains(event.target as Node)) {
+      setFilterOpen(false);
+    }
   };
 
   return (
@@ -26,7 +40,7 @@ const ChatHeader: React.FC<ChatHeaderProps> = ({ searchQuery, setSearchQuery, se
             className="search-input"
           />
         </div>
-        <div className="filter-container">
+        <div className="filter-container" ref={filterRef}>
           <button className="filter-button" onClick={toggleFilterMenu}>
             <FunnelIcon className="filter-icon" />
           </button>

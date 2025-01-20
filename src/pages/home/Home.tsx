@@ -37,9 +37,14 @@ const Home = () => {
 
   useEffect(() => {
     if (tasks.length === 0) {
-      setModalOpen(true);
+      const timeout = setTimeout(() => {
+        setModalOpen(true);
+      }, 500);
+
+      return () => clearTimeout(timeout);
     }
   }, [tasks]);
+  
 
   const handleOpenModal = (title?: string, isEdit = false) => {
     setCurrentTitle(title || "");

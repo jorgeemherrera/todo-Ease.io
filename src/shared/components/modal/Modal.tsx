@@ -3,9 +3,12 @@ import './Modal.scss';
 
 const Modal: React.FC<ModalProps> = ({ isOpen, onClose, children }) => {
     if (!isOpen) return null;
-  
+
+  const handleOverlayClick = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (e.target === e.currentTarget) onClose();
+  };
     return (
-      <div className="modal-overlay" role="dialog" aria-modal="true">
+      <div className="modal-overlay" role="dialog" aria-modal="true" onClick={handleOverlayClick}>
         <div className="modal">
           <button
             className="modal-close"

@@ -1,14 +1,23 @@
-import React from "react";
-import './Input.scss';
+import { useState, useEffect } from "react";
+import { InputProps } from "@shared/interfaces";
+import "./Input.scss";
 
-interface InputProps {
-  command: string;
-  commandText: string;
-  onCommandChange: (command: string, commandText: string) => void;
-  onCommandExecute: (action: string, title: string) => void;
-}
+const Input: React.FC<InputProps> = ({
+  command,
+  commandText,
+  onCommandChange,
+  onCommandExecute,
+}) => {
+  const [deleteConfirmation, setDeleteConfirmation] = useState(false);
+  const [helpVisible, setHelpVisible] = useState(false);
 
-const Input: React.FC<InputProps> = ({ command, commandText, onCommandChange, onCommandExecute }) => {
+  useEffect(() => {
+    if (deleteConfirmation) {
+      const timeout = setTimeout(() => setDeleteConfirmation(false), 5000);
+      return () => clearTimeout(timeout);
+    }
+  }, [deleteConfirmation]);
+
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter") {
       const input = e.currentTarget as HTMLInputElement;
@@ -17,19 +26,32 @@ const Input: React.FC<InputProps> = ({ command, commandText, onCommandChange, on
 
       const [action, ...args] = value.split(" ");
       const title = args.join(" ");
-      onCommandExecute(action, title);
+
+      if (action.toUpperCase() === "BORRAR") {
+        if (!deleteConfirmation) {
+          setDeleteConfirmation(true);
+          return;
+        }
+      }
+
+      onCommandExecute(action.toUpperCase(), title);
 
       input.value = "";
       onCommandChange("", "");
+      setDeleteConfirmation(false);
     } else {
       const input = e.currentTarget.value.trim();
       const action = input.split(" ")[0].toUpperCase();
 
       if (["CREAR", "EDITAR", "BORRAR"].includes(action)) {
         onCommandChange(action, input);
+        setHelpVisible(false);
       } else {
         onCommandChange("", "");
+        setHelpVisible(true);
       }
+
+      if (action !== "BORRAR") setDeleteConfirmation(false);
     }
   };
 
@@ -40,8 +62,26 @@ const Input: React.FC<InputProps> = ({ command, commandText, onCommandChange, on
         className={`chat-input ${command.toLowerCase()}`}
         placeholder="Escribe un comando (CREAR, EDITAR, BORRAR)"
         onKeyDown={handleKeyDown}
+        onFocus={() => setHelpVisible(true)}
+        onBlur={() => setHelpVisible(false)}
       />
-      {command && <span className={`chat-command ${command.toLowerCase()}`}>{commandText}</span>}
+      {command && (
+        <span className={`chat-command ${command.toLowerCase()}`}>
+          {deleteConfirmation && command === "BORRAR"
+            ? "Confirme BORRAR"
+            : commandText}
+        </span>
+      )}
+      {helpVisible && (
+        <div className="chat-help">
+          <p>Comandos disponibles:</p>
+          <ul>
+            <li><strong>CREAR</strong>: Crear una nueva tarea</li>
+            <li><strong>EDITAR</strong>: Editar una tarea existente</li>
+            <li><strong>BORRAR</strong>: Borrar una tarea (requiere confirmación)</li>
+          </ul>
+        </div>
+      )}
     </div>
   );
 };

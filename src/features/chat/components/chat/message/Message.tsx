@@ -1,25 +1,6 @@
-import React from "react";
-import "./Message.scss";
 import { PencilIcon, TrashIcon } from "@heroicons/react/16/solid";
-
-interface MessageType {
-  id: string;
-  author: string;
-  title: string;
-  time: string;
-  content: string;
-  createdAt: string;
-  isTaskOverdue: boolean;
-  hasOverdueItems: boolean;
-  status?: "Open" | "In Progress" | "Completed" | "Overdue";
-}
-
-interface MessageProps {
-  message: MessageType;
-  onEdit: (taskId: string) => void;
-  onDelete: (taskId: string) => void;
-  onSelect: (taskId: string) => void;
-}
+import { MessageProps } from "@features/chat";
+import "./Message.scss";
 
 const statusTranslations: Record<string, string> = {
   Open: "Abierto",
@@ -76,9 +57,6 @@ const Message: React.FC<MessageProps> = ({
         <p className="message-due-date">
           <strong>Vence:</strong> {message.time}
         </p>
-        {message.isTaskOverdue && (
-          <span className="message-status overdue">Vencido</span>
-        )}
         {!message.isTaskOverdue && message.hasOverdueItems && (
           <span className="message-status warning">Checklist vencido</span>
         )}

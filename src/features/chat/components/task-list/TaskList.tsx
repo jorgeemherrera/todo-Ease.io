@@ -1,6 +1,5 @@
-
 import { TaskListProps } from "@features/chat";
-import { Message } from "@shared/components";
+import { Message } from "../chat/message";
 import './TaskList.scss';
 
 const TaskList: React.FC<TaskListProps> = ({ tasks, onEdit, onDelete, onSelect }) => {

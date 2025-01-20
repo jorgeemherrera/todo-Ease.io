@@ -12,6 +12,10 @@
     position: relative;
     overflow: hidden;
 
+    @include utils.media-ltlg(){
+        width: 100%;
+    }
+
     [data-theme="dark"] & {
         background-color: #1a202c;
     }
