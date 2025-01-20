@@ -1,0 +1,1 @@
+export type { ChatProps } from './ChatProps';

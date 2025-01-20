@@ -1,10 +1,21 @@
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { setTasks } from '@features/task-form/task-slice';
+import { Home } from '@pages/home';
+import { getTasksFromDB } from '@features/task-form/indexedDb';
 
-function App() {
+const App = () => {
+  const dispatch = useDispatch();
 
-  return (
-    <>
-    </>
-  )
-}
+  useEffect(() => {
+    const fetchTasks = async () => {
+      const tasks = await getTasksFromDB();
+      dispatch(setTasks(tasks));
+    };
+    fetchTasks();
+  }, [dispatch]);
 
-export default App
+  return <Home />
+} 
+
+export default App;

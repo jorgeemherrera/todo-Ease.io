@@ -1,2 +1,15 @@
 @forward './styles/globals';
 @forward './styles/utility-classes';
+
+body {
+    background-color: #F1F1F1;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Rubik', 'sans-serif';
+    overflow: hidden;
+
+    [data-theme="dark"] &{
+        background-color: #262c39;
+    }
+}

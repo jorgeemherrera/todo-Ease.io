@@ -1,0 +1,123 @@
+.task-form {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: 'Inter', sans-serif;
+  
+    .form-header {
+      margin-bottom: 1.5rem;
+      h2 {
+        font-size: 1.8rem;
+        color: #333;
+      }
+    }
+  
+    .form-group {
+      margin-bottom: 1rem;
+  
+      label {
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+        display: block;
+      }
+  
+      input,
+      textarea,
+      select {
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        padding: 0.8rem;
+        width: 100%;
+        &:focus {
+          border-color: #6200ee;
+          outline: none;
+        }
+      }
+    }
+  
+    .form-inline {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+  
+      div {
+        flex: 1;
+      }
+    }
+  
+    .checklist {
+      margin-top: 1.5rem;
+  
+      .checklist-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+  
+        h3 {
+          font-size: 1.2rem;
+        }
+  
+        button {
+          background: #6200ee;
+          color: #fff;
+          border: none;
+          border-radius: 6px;
+          padding: 0.5rem 1rem;
+          cursor: pointer;
+  
+          &:hover {
+            background: #4b00c9;
+          }
+        }
+      }
+  
+      ul {
+        padding: 0;
+        list-style: none;
+  
+        li {
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+          padding: 0.5rem;
+          border: 1px solid #ccc;
+          border-radius: 6px;
+  
+          &.overdue {
+            border-color: #f44336;
+            background: #ffebee;
+          }
+        }
+      }
+    }
+  
+    .form-actions {
+      display: flex;
+      justify-content: flex-end;
+      gap: 1rem;
+  
+      .btn {
+        padding: 0.8rem 1.5rem;
+        border-radius: 6px;
+        font-size: 1rem;
+  
+        &.btn-cancel {
+          background: #e0e0e0;
+          &:hover {
+            background: #d6d6d6;
+          }
+        }
+  
+        &.btn-save {
+          background: #6200ee;
+          color: #fff;
+  
+          &:hover {
+            background: #4b00c9;
+          }
+        }
+      }
+    }
+  }
+  
