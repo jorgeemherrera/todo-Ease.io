@@ -1,0 +1,52 @@
+@use "@styles/utils";
+
+.task-form-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: utils.pxToRem(20px);
+
+    button {
+        padding: utils.pxToRem(12px) utils.pxToRem(24px);
+        font-size: utils.pxToRem(16px);
+        border-radius: utils.pxToRem(8px);
+        cursor: pointer;
+        transition: background-color 0.3s;
+
+        &.cancel {
+            background-color: #e0e0e0;
+            border: none;
+
+            &:hover {
+                background-color: #d6d6d6;
+            }
+
+            [data-theme="dark"] & {
+                background-color: #4a5568;
+                color: #e2e8f0;
+
+                &:hover {
+                    background-color: #3b4251;
+                }
+            }
+        }
+
+        &.save {
+            background-color: #6200ee;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+
+            &.save:hover {
+                background-color: #4b00c9;
+            }
+            [data-theme="dark"] & {
+                background-color: #7f5fff;
+
+                &:hover {
+                    background-color: #6a46d4;
+                }
+            }
+        }
+    }
+}

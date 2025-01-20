@@ -1,0 +1,107 @@
+@use "@styles/utils";
+
+.chat {
+    display: flex;
+    flex-direction: column;
+    gap: utils.pxToRem(16px);
+    padding-top: utils.pxToRem(16px);
+    background-color: #f7f7f7;
+    border-bottom-right-radius: utils.pxToRem(12px);
+    width: utils.pxToRem(800px);
+    max-height: 80%;
+    position: relative;
+    overflow: hidden;
+
+    [data-theme="dark"] & {
+        background-color: #1a202c;
+    }
+
+    &-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &-title {
+        font-size: utils.pxToRem(24px);
+        font-weight: bold;
+    }
+
+    &-actions {
+        display: flex;
+        align-items: center;
+        gap: utils.pxToRem(12px);
+
+        .search-bar {
+            position: relative;
+            display: flex;
+            align-items: center;
+
+            .search-icon {
+                position: absolute;
+                left: utils.pxToRem(8px);
+                width: utils.pxToRem(20px);
+                height: utils.pxToRem(20px);
+                color: #6c757d;
+            }
+
+            .search-input {
+                padding: utils.pxToRem(8px) utils.pxToRem(8px) utils.pxToRem(8px) utils.pxToRem(32px);
+                border: utils.pxToRem(1px) solid #ccc;
+                border-radius: utils.pxToRem(8px);
+                font-size: utils.pxToRem(14px);
+                width: utils.pxToRem(200px);
+
+                &:focus {
+                    outline: none;
+                    border-color: #007bff;
+                }
+
+                &::placeholder {
+                    color: #6c757d; // Color del placeholder en modo claro
+                }
+
+                [data-theme="dark"] & {
+                    background-color: #2d3748;
+                    border-color: #4a5568;
+                    color: #e2e8f0;
+
+                    &::placeholder {
+                        color: #a0aec0; // Color del placeholder en modo oscuro
+                    }
+                }
+            }
+        }
+
+        .filter-dropdown {
+            position: relative;
+
+            .filter-icon {
+                position: absolute;
+                left: utils.pxToRem(8px);
+                width: utils.pxToRem(20px);
+                height: utils.pxToRem(20px);
+                color: #6c757d;
+            }
+
+            .filter-select {
+                appearance: none;
+                padding: utils.pxToRem(8px) utils.pxToRem(32px) utils.pxToRem(8px) utils.pxToRem(8px);
+                border: utils.pxToRem(1px) solid #ccc;
+                border-radius: utils.pxToRem(8px);
+                font-size: utils.pxToRem(14px);
+
+                &:focus {
+                    outline: none;
+                    border-color: #007bff;
+                }
+
+                [data-theme="dark"] & {
+                    background-color: #2d3748;
+                    border-color: #4a5568;
+                    color: #e2e8f0;
+                }
+            }
+        }
+    }
+}

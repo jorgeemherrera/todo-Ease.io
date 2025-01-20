@@ -1,9 +1,8 @@
 import { useState, useEffect } from "react";
-import { getThemeFromDB, saveThemeToDB } from "@features/task-form/indexedDb";
+import { getThemeFromDB, saveThemeToDB } from "@utils/indexed-db/indexedDb";
+import { Theme } from "@hooks/types";
 
-type Theme = "light" | "dark";
-
-export const useTheme = () => {
+const UseTheme = () => {
   const [theme, setTheme] = useState<Theme>("light");
 
   useEffect(() => {
@@ -29,3 +28,5 @@ export const useTheme = () => {
 
   return { theme, toggleTheme };
 };
+
+export default UseTheme;

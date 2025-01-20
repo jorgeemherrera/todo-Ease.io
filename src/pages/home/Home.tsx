@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import TaskForm from "@features/task-form/TaskForm";
-import { getTasksFromDB } from "@features/task-form/indexedDb";
+import TaskForm from "@features/task-form/components/task-form/TaskForm";
+import { getTasksFromDB } from "@utils/indexed-db/indexedDb";
 import { Chat } from "@features/chat";
 import { RootState } from "@store/store";
 import {
@@ -11,7 +11,7 @@ import {
   selectTask,
   deleteTask,
   updateTaskChecklist,
-} from "@features/task-form/task-slice";
+} from "@store/task-slice";
 import Modal from "@shared/components/modal/Modal";
 import { Header } from "@features/header";
 import "./Home.scss";
@@ -27,7 +27,6 @@ const Home = () => {
   const [isEditing, setIsEditing] = useState(false);
   const [currentTitle, setCurrentTitle] = useState("");
 
-  // Cargar tareas desde IndexedDB
   useEffect(() => {
     const fetchTasks = async () => {
       const dbTasks = await getTasksFromDB();
@@ -36,14 +35,12 @@ const Home = () => {
     fetchTasks();
   }, [dispatch]);
 
-  // Abrir modal automáticamente si no hay tareas
   useEffect(() => {
     if (tasks.length === 0) {
       setModalOpen(true);
     }
   }, [tasks]);
 
-  // Abrir el modal con lógica para edición o creación
   const handleOpenModal = (title?: string, isEdit = false) => {
     setCurrentTitle(title || "");
     setIsEditing(isEdit);

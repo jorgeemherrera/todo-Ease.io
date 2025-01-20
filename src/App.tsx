@@ -1,8 +1,8 @@
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { setTasks } from '@features/task-form/task-slice';
+import { setTasks } from '@store/task-slice';
 import { Home } from '@pages/home';
-import { getTasksFromDB } from '@features/task-form/indexedDb';
+import { getTasksFromDB } from '@utils/indexed-db/indexedDb';
 
 const App = () => {
   const dispatch = useDispatch();

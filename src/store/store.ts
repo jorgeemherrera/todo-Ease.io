@@ -1,5 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit';
-import taskReducer from '@features/task-form/task-slice'; // Importa tu slice de tareas
+import taskReducer from '@store/task-slice'; // Importa tu slice de tareas
 
 // Configura el store con los reducers
 export const store = configureStore({

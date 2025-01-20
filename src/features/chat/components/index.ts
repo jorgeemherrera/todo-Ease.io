@@ -1,1 +1,3 @@
-export { default as Chat } from './Chat';
+export * from './chat';
+export * from './chat-header';
+export * from './task-list';

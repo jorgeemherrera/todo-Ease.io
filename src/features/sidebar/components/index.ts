@@ -1,1 +1,4 @@
-export { default as Sidebar } from './Sidebar';
+export * from './sidebar';
+export * from './sidebar-details';
+export * from './sidebar-header';
+export * from './sidebar-checklist';

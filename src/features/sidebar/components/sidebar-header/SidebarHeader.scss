@@ -1,0 +1,17 @@
+@use "@styles/utils";
+
+.sidebar-header {
+    font-size: utils.pxToRem(28px);
+    font-weight: 700;
+    color: #1a202c;
+
+    [data-theme="dark"] & {
+      color: #e2e8f0;
+    }
+  }
+
+  .sidebar-title {
+    font-size: utils.pxToRem(24px);
+    font-weight: 600;
+    margin-top: utils.pxToRem(8px);
+  }

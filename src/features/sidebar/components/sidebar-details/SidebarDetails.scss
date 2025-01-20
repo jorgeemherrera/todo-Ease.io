@@ -1,0 +1,84 @@
+@use "@styles/utils";
+
+
+.sidebar-description {
+    margin-top: utils.pxToRem(12px);
+    color: #4a5568;
+
+    [data-theme="dark"] & {
+      color: #cbd5e0;
+    }
+  }
+
+  .sidebar-due-date {
+    margin-top: utils.pxToRem(24px);
+    font-size: utils.pxToRem(16px);
+    color: #718096;
+
+    .sidebar-overdue {
+      color: #e53e3e;
+      font-weight: bold;
+    }
+  }
+
+  .sidebar-status-container {
+    display: flex;
+    align-items: center;
+    gap: utils.pxToRem(16px);
+    margin: utils.pxToRem(16px) 0;
+
+    .sidebar-status {
+      padding: utils.pxToRem(8px) utils.pxToRem(16px);
+      font-size: utils.pxToRem(16px);
+      font-weight: bold;
+      border-radius: utils.pxToRem(8px);
+      text-transform: capitalize;
+
+      &.overdue {
+        background-color: #dc3545;
+        color: #fff;
+      }
+
+      &.completed {
+        background-color: #28a745;
+        color: #fff;
+      }
+
+      &.in-progress {
+        background-color: #007bff;
+        color: #fff;
+      }
+
+      &.open {
+        background-color: #6c757d;
+        color: #fff;
+      }
+    }
+
+    .sidebar-status-selector {
+      appearance: none;
+      padding: utils.pxToRem(8px);
+      border-radius: utils.pxToRem(8px);
+      border: utils.pxToRem(1px) solid #ddd;
+      background-color: #fff;
+      color: #333;
+      font-size: utils.pxToRem(16px);
+      cursor: pointer;
+      transition: border-color 0.3s, background-color 0.3s;
+
+      &:focus {
+        outline: none;
+        border-color: #6200ee;
+      }
+
+      [data-theme="dark"] & {
+        background-color: #4a5568;
+        color: #e2e8f0;
+        border-color: #2d3748;
+
+        &:hover {
+          background-color: #3b4251;
+        }
+      }
+    }
+  }

@@ -1,7 +1,7 @@
-import { Task } from "@features/task-form/task-slice";
+import { Task } from "@store/task-slice";
 
 export interface SidebarProps {
-  task?: Task;
-  isTaskOverdue: boolean;
-  onChecklistUpdate: (checklistId: string, checked: boolean) => void;
+    task?: Task;
+    onChecklistUpdate: (checklistId: string, checked: boolean) => void;
+    onStatusChange: (status: "Open" | "In Progress" | "Completed" | "Overdue") => void;
 }

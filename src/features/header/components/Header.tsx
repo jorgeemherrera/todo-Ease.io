@@ -1,14 +1,14 @@
 
 import { MoonIcon, SunIcon } from "@heroicons/react/16/solid";
-import { useTheme } from "@hooks/use-theme/UseTheme";
+import { UseTheme } from "@hooks/use-theme";
 import "./Header.scss";
 
 const Header: React.FC = () => {
-  const { theme, toggleTheme } = useTheme();
+  const { theme, toggleTheme } = UseTheme();
 
   return (
     <header className="header">
-      <h1 className="header-title">To-Do App</h1>
+      <h2 className="header-title">To-Do App</h2>
       <button
         className="theme-toggle"
         onClick={toggleTheme}
