@@ -28,6 +28,7 @@
         "@pages/*": ["pages/*"],
         "@store/*": ["store/*"],
         "@context/*": ["context/*"],
+        "@hooks/*": ["hooks/*"],
     },
 
     /* Linting */

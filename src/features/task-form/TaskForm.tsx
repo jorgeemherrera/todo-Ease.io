@@ -75,10 +75,11 @@ const TaskForm: React.FC<TaskFormProps> = ({ initialData, onSave, onCancel }) =>
 
   return (
     <div className="task-form">
-      <header className="form-header">
+      <header className="task-form-header">
         <h2>{initialData ? 'Editar Tarea' : 'Crear Tarea'}</h2>
       </header>
-      <div className="form-group">
+
+      <div className="task-form-group">
         <label htmlFor="task-title">Título</label>
         <input
           id="task-title"
@@ -88,7 +89,8 @@ const TaskForm: React.FC<TaskFormProps> = ({ initialData, onSave, onCancel }) =>
           placeholder="Escribe el título de la tarea"
         />
       </div>
-      <div className="form-group">
+
+      <div className="task-form-group">
         <label htmlFor="task-desc">Descripción</label>
         <textarea
           id="task-desc"
@@ -97,7 +99,8 @@ const TaskForm: React.FC<TaskFormProps> = ({ initialData, onSave, onCancel }) =>
           placeholder="Describe los detalles de la tarea"
         />
       </div>
-      <div className="form-group form-inline">
+
+      <div className="task-form-group task-form-inline">
         <div>
           <label htmlFor="task-date">Fecha límite</label>
           <input
@@ -120,14 +123,20 @@ const TaskForm: React.FC<TaskFormProps> = ({ initialData, onSave, onCancel }) =>
           </select>
         </div>
       </div>
-      <div className="checklist">
-        <header className="checklist-header">
+
+      <div className="task-form-checklist">
+        <header className="task-form-checklist-header">
           <h3>Checklist</h3>
-          <button onClick={handleAddChecklistItem}>+ Añadir Ítem</button>
+          <button onClick={handleAddChecklistItem} className="task-form-add-btn">
+            + Añadir Ítem
+          </button>
         </header>
-        <ul>
+        <ul className="task-form-checklist-items">
           {checklist.map((item) => (
-            <li key={item.id} className={item.isOverdue ? 'overdue' : ''}>
+            <li
+              key={item.id}
+              className={`task-form-checklist-item ${item.isOverdue ? 'task-form-checklist-item-overdue' : ''}`}
+            >
               <input
                 type="checkbox"
                 checked={item.checked}
@@ -150,18 +159,23 @@ const TaskForm: React.FC<TaskFormProps> = ({ initialData, onSave, onCancel }) =>
                   handleChecklistChange(item.id, 'dueDate', e.target.value)
                 }
               />
-              <button onClick={() => handleChecklistDelete(item.id)}>🗑</button>
+              <button
+                onClick={() => handleChecklistDelete(item.id)}
+                className="task-form-delete-btn"
+              >
+                🗑
+              </button>
             </li>
           ))}
         </ul>
       </div>
-      <footer className="form-actions">
-        <button onClick={onCancel} className="btn btn-cancel">Cancelar</button>
-        <button onClick={handleSave} className="btn btn-save">Guardar</button>
+
+      <footer className="task-form-actions">
+        <button onClick={onCancel} className="task-form-btn task-form-btn-cancel">Cancelar</button>
+        <button onClick={handleSave} className="task-form-btn task-form-btn-save">Guardar</button>
       </footer>
     </div>
   );
-  
 };
 
 export default TaskForm;

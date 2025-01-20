@@ -1,10 +1,69 @@
 @use "@styles/utils";
 
+.chat-input-container {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    border-top: utils.pxToRem(1px) solid #ddd;
+    
+    [data-theme="dark"] & {
+        border-top: utils.pxToRem(1px) solid #2D3748;
+    }
+
+    .chat-input {
+        width: 100%;
+        padding: utils.pxToRem(12px);
+        border: none;
+        height: utils.pxToRem(60px);
+        font-size: utils.pxToRem(16px);
+        border-bottom-right-radius: utils.pxToRem(12px);
+        
+        [data-theme="dark"] & {
+            background-color: #2D3748;
+        }
+
+        &.crear {
+            border-color: #28a745;
+        }
+
+        &.editar {
+            border-color: #ffc107;
+        }
+
+        &.borrar {
+            border-color: #dc3545;
+        }
+    }
+
+    .chat-command {
+        position: absolute;
+        right: utils.pxToRem(16px);
+        top: 50%;
+        transform: translateY(-50%);
+        padding: utils.pxToRem(4px) utils.pxToRem(8px);
+        font-weight: bold;
+        font-size: utils.pxToRem(14px);
+        color: #fff;
+
+        &.crear {
+            background-color: #28a745;
+        }
+
+        &.editar {
+            background-color: #ffc107;
+        }
+
+        &.borrar {
+            background-color: #dc3545;
+        }
+    }
+}
+
 .message {
     background-color: #fff;
     border-radius: 12px;
-    margin: 0 1rem;
-    padding: 1.25rem;
+    margin: 0 utils.pxToRem(16px);
+    padding: utils.pxToRem(20px);
     transition:
         transform 0.2s,
         box-shadow 0.2s,
@@ -21,12 +80,12 @@
     }
 
     &.message-selected {
-        border-left: 4px solid #007bff;
+        border-left: utils.pxToRem(4px) solid #007bff;
     }
 
     &.message-warning {
         background-color: #fff3cd;
-        border-left: 4px solid #ffc107;
+        border-left: utils.pxToRem(4px) solid #ffc107;
 
         [data-theme="dark"] & {
             color: black;
@@ -35,7 +94,7 @@
 
     &.message-overdue {
         background-color: #f8d7da;
-        border-left: 4px solid #dc3545;
+        border-left: utils.pxToRem(4px) solid #dc3545;
 
         [data-theme="dark"] & {
             color: black;
@@ -43,7 +102,7 @@
     }
 
     &:not(.message-warning):not(.message-overdue) {
-        border-left: 4px solid #1a202c;
+        border-left: utils.pxToRem(4px) solid #1a202c;
         background-color: #f0f0f0;
 
         [data-theme="dark"] & {
@@ -56,7 +115,7 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        margin-bottom: 0.75rem;
+        margin-bottom: utils.pxToRem(12px);
 
         .message-title-container {
             display: flex;
@@ -74,7 +133,7 @@
         }
 
         .message-time {
-            font-size: 0.875rem;
+            font-size: utils.pxToRem(14px);
             color: #666;
 
             [data-theme="dark"] & {
@@ -85,8 +144,8 @@
 
     .message-content {
         p {
-            margin: 0.25rem 0;
-            font-size: 1rem;
+            margin: utils.pxToRem(4px) 0;
+            font-size: utils.pxToRem(16px);
             color: #333;
 
             [data-theme="dark"] & {
@@ -95,7 +154,7 @@
         }
 
         .message-due-date {
-            font-size: 0.9rem;
+            font-size: utils.pxToRem(14px);
             color: #555;
 
             [data-theme="dark"] & {
@@ -105,9 +164,9 @@
 
         .message-status {
             display: inline-block;
-            padding: 0.25rem 0.5rem;
-            border-radius: 8px;
-            font-size: 0.875rem;
+            padding: utils.pxToRem(4px) utils.pxToRem(8px);
+            border-radius: utils.pxToRem(8px);
+            font-size: utils.pxToRem(14px);
             font-weight: bold;
 
             &.overdue {
@@ -133,14 +192,47 @@
 
 
 .icon {
-    width: 24px; /* Tamaño explícito del ícono */
-    height: 24px; /* Altura explícita */
-    margin-left: 0.5rem; /* Espaciado a la izquierda */
-    color: #484c54; /* Color del ícono */
+    width: utils.pxToRem(24px);
+    height: utils.pxToRem(24px);
+    margin-left: utils.pxToRem(8px);
+    color: #484c54;
     cursor: pointer;
     transition: color 0.3s;
   
     &:hover {
-      color: #0056b3; /* Color al pasar el mouse */
+      color: #0056b3;
+    }
+}
+
+
+.message-status-tag {
+    display: inline-block;
+    padding: utils.pxToRem(4px) utils.pxToRem(8px);
+    border-radius: utils.pxToRem(8px);
+    font-size: utils.pxToRem(12px);
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-left: utils.pxToRem(8px);
+  
+    &.open {
+      background-color: #6c757d;
+      color: #fff;
+    }
+  
+    &.in-progress {
+      background-color: #007bff;
+      color: #fff;
+    }
+  
+    &.completed {
+      background-color: #28a745;
+      color: #fff;
+      text-decoration: line-through;
+    }
+  
+    &.overdue {
+      background-color: #dc3545;
+      color: #fff;
     }
   }
+  

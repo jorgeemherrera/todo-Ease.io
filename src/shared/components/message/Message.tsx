@@ -11,6 +11,7 @@ interface MessageType {
   createdAt: string;
   isTaskOverdue: boolean;
   hasOverdueItems: boolean;
+  status?: "Open" | "In Progress" | "Completed" | "Overdue"; // Opcional
 }
 
 interface MessageProps {
@@ -26,6 +27,7 @@ const Message: React.FC<MessageProps> = ({
   onDelete,
   onSelect,
 }) => {
+  const status = message.status || "Open"; // Valor por defecto si `status` no está definido.
   const statusClass = message.isTaskOverdue
     ? "message-overdue"
     : message.hasOverdueItems
@@ -73,6 +75,9 @@ const Message: React.FC<MessageProps> = ({
         {!message.isTaskOverdue && message.hasOverdueItems && (
           <span className="message-status warning">Checklist vencido</span>
         )}
+                  <span className={`message-status-tag ${status.toLowerCase()}`}>
+            {status}
+          </span>
       </div>
     </article>
   );

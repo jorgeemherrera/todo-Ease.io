@@ -4,26 +4,39 @@
     margin: 2rem auto;
     width: 100%;
     max-width: utils.pxToRem(344px);
-    @include utils.media-sm(){
+
+    @include utils.media-sm() {
         max-width: utils.pxToRem(512px);
     }
-    @include utils.media-md(){
+
+    @include utils.media-md() {
         max-width: utils.pxToRem(688px);
     }
-    @include utils.media-lg(){
+
+    @include utils.media-lg() {
         max-width: utils.pxToRem(928px);
     }
-    @include utils.media-xl(){
+
+    @include utils.media-xl() {
         max-width: utils.pxToRem(1000px);
     }
 
-    &-content{
+    &-content {
         display: flex;
         height: 100vh;
+
+        // Cambiar a columna en pantallas pequeñas
+        @include utils.media-xs {
+            flex-direction: column;
+        }
+
+        // En pantallas más grandes, mantener el layout horizontal
+        @include utils.media-gtxs {
+            flex-direction: row;
+        }
     }
 
-    &-header{
+    &-header {
         background-color: white;
     }
-
 }

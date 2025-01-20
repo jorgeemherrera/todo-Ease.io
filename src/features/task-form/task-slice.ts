@@ -13,7 +13,7 @@ export interface Task {
     title: string;
     description: string;
     dueDate?: string;
-    createdAt: string; // Fecha de creación
+    createdAt: string;
     status: 'Open' | 'In Progress' | 'Completed' | 'Overdue';
     checklist: ChecklistItem[];
   }
@@ -38,18 +38,18 @@ const taskSlice = createSlice({
     },
     addTask: (state, action: PayloadAction<Task>) => {
       state.tasks.push(action.payload);
-      saveTaskToDB(action.payload); // Persistir en IndexedDB
+      saveTaskToDB(action.payload);
     },
     updateTask: (state, action: PayloadAction<Task>) => {
       const index = state.tasks.findIndex((task) => task.id === action.payload.id);
       if (index !== -1) {
         state.tasks[index] = action.payload;
-        saveTaskToDB(action.payload); // Actualizar en IndexedDB
+        saveTaskToDB(action.payload); 
       }
     },
     deleteTask: (state, action: PayloadAction<string>) => {
       state.tasks = state.tasks.filter((task) => task.id !== action.payload);
-      deleteTaskFromDB(action.payload); // Eliminar de IndexedDB
+      deleteTaskFromDB(action.payload);
     },
     selectTask: (state, action: PayloadAction<string | null>) => {
       state.selectedTaskId = action.payload;
