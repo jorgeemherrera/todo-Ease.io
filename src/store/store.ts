@@ -1,15 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
-import taskReducer from '@store/task-slice'; // Importa tu slice de tareas
+import taskReducer from '@store/task-slice'; 
 
-// Configura el store con los reducers
 export const store = configureStore({
   reducer: {
-    tasks: taskReducer, // Añade más reducers si tienes otros slices
+    tasks: taskReducer, 
   },
 });
 
-// Define RootState basado en el tipo del store
 export type RootState = ReturnType<typeof store.getState>;
-
-// Exporta el tipo de Dispatch si es necesario
 export type AppDispatch = typeof store.dispatch;

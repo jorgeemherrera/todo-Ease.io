@@ -4,10 +4,10 @@
     position: absolute;
     bottom: 0;
     width: 100%;
-    border-top: utils.pxToRem(1px) solid #ddd;
+    border-top: utils.pxToRem(1px) solid utils.$silver-alt;
 
     [data-theme="dark"] & {
-        border-top: utils.pxToRem(1px) solid #2D3748;
+        border-top: utils.pxToRem(1px) solid utils.$dark-charcoal;
     }
 
     .chat-input {
@@ -19,28 +19,28 @@
         border-bottom-right-radius: utils.pxToRem(12px);
 
         &::placeholder {
-            color: #6c757d;
+            color: utils.$slate-gray;
         }
 
         [data-theme="dark"] & {
-            background-color: #2D3748;
-            color: #e2e8f0;
+            background-color: utils.$dark-charcoal;
+            color: utils.$light-silver;
 
             &::placeholder {
-                color: #a0aec0;
+                color: utils.$blue-gray-alt;
             }
         }
 
         &.crear {
-            border-color: #28a745;
+            border-color: utils.$success-green;
         }
 
         &.editar {
-            border-color: #ffc107;
+            border-color: utils.$amber;
         }
 
         &.borrar {
-            border-color: #dc3545;
+            border-color: utils.$crimson;
         }
     }
 
@@ -53,72 +53,71 @@
         padding: utils.pxToRem(4px) utils.pxToRem(8px);
         font-weight: bold;
         font-size: utils.pxToRem(14px);
-        color: #fff;
+        color: utils.$white;
 
         &.crear {
-            background-color: #28a745;
+            background-color: utils.$success-green;
         }
 
         &.editar {
-            background-color: #ffc107;
+            background-color: utils.$amber;
         }
 
         &.borrar {
-            background-color: #dc3545;
+            background-color: utils.$crimson;
         }
     }
 }
 
-
 .chat-command.borrar {
-    background-color: #dc3545;
-  }
-  
-  .chat-command.borrar::before {
+    background-color: utils.$crimson;
+}
+
+.chat-command.borrar::before {
     content: "Confirme: ";
     font-weight: normal;
-  }
-  
-  .chat-help {
+}
+
+.chat-help {
     position: absolute;
     bottom: calc(100% + utils.pxToRem(8px));
     left: 0;
     width: 100%;
-    background: #fff;
-    border: utils.pxToRem(1px) solid #ddd;
+    background: utils.$white;
+    border: utils.pxToRem(1px) solid utils.$silver-alt;
     border-radius: utils.pxToRem(8px);
     padding: utils.pxToRem(12px);
     font-size: utils.pxToRem(14px);
-    color: #333;
+    color: utils.$dim-gray;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 
     p {
-      font-weight: bold;
-      margin-bottom: utils.pxToRem(8px);
+        font-weight: bold;
+        margin-bottom: utils.pxToRem(8px);
     }
 
     ul {
-      margin: 0;
-      padding: 0;
-      list-style: none;
+        margin: 0;
+        padding: 0;
+        list-style: none;
 
-      li {
-        margin-bottom: utils.pxToRem(4px);
-        font-weight: normal;
+        li {
+            margin-bottom: utils.pxToRem(4px);
+            font-weight: normal;
 
-        strong {
-          color: #007bff;
+            strong {
+                color: utils.$sky-blue;
+            }
         }
-      }
     }
 
     [data-theme="dark"] & {
-      background: #2d3748;
-      color: #e2e8f0;
-      border-color: #4a5568;
+        background: utils.$dark-charcoal;
+        color: utils.$light-silver;
+        border-color: utils.$cool-gray;
 
-      strong {
-        color: #63b3ed;
-      }
+        strong {
+            color: utils.$light-blue;
+        }
     }
-  }
+}

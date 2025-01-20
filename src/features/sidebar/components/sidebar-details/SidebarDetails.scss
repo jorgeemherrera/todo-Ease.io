@@ -1,84 +1,82 @@
 @use "@styles/utils";
 
-
 .sidebar-description {
     margin-top: utils.pxToRem(12px);
-    color: #4a5568;
+    color: utils.$cool-gray;
 
     [data-theme="dark"] & {
-      color: #cbd5e0;
+        color: utils.$soft-gray;
     }
-  }
+}
 
-  .sidebar-due-date {
+.sidebar-due-date {
     margin-top: utils.pxToRem(24px);
     font-size: utils.pxToRem(16px);
-    color: #718096;
+    color: utils.$blue-gray;
 
     .sidebar-overdue {
-      color: #e53e3e;
-      font-weight: bold;
+        color: utils.$tomato;
+        font-weight: bold;
     }
-  }
+}
 
-  .sidebar-status-container {
+.sidebar-status-container {
     display: flex;
     align-items: center;
     gap: utils.pxToRem(16px);
     margin: utils.pxToRem(16px) 0;
 
     .sidebar-status {
-      padding: utils.pxToRem(8px) utils.pxToRem(16px);
-      font-size: utils.pxToRem(16px);
-      font-weight: bold;
-      border-radius: utils.pxToRem(8px);
-      text-transform: capitalize;
+        padding: utils.pxToRem(8px) utils.pxToRem(16px);
+        font-size: utils.pxToRem(16px);
+        font-weight: bold;
+        border-radius: utils.pxToRem(8px);
+        text-transform: capitalize;
 
-      &.overdue {
-        background-color: #dc3545;
-        color: #fff;
-      }
+        &.overdue {
+            background-color: utils.$crimson;
+            color: utils.$white;
+        }
 
-      &.completed {
-        background-color: #28a745;
-        color: #fff;
-      }
+        &.completed {
+            background-color: utils.$success-green;
+            color: utils.$white;
+        }
 
-      &.in-progress {
-        background-color: #007bff;
-        color: #fff;
-      }
+        &.in-progress {
+            background-color: utils.$sky-blue;
+            color: utils.$white;
+        }
 
-      &.open {
-        background-color: #6c757d;
-        color: #fff;
-      }
+        &.open {
+            background-color: utils.$slate-gray;
+            color: utils.$white;
+        }
     }
 
     .sidebar-status-selector {
         padding: utils.pxToRem(8px);
         border-radius: utils.pxToRem(8px);
-        border: utils.pxToRem(1px) solid #ddd;
-        background-color: #fff;
-        color: #333;
+        border: utils.pxToRem(1px) solid utils.$silver-alt;
+        background-color: utils.$white;
+        color: utils.$dim-gray;
         font-size: utils.pxToRem(16px);
         cursor: pointer;
         transition: border-color 0.3s, background-color 0.3s;
-      
+
         &:focus {
-          outline: none;
-          border-color: #6200ee;
+            outline: none;
+            border-color: utils.$violet;
         }
-      
+
         [data-theme="dark"] & {
-          background-color: #4a5568;
-          color: #e2e8f0;
-          border-color: #2d3748;
-      
-          &:hover {
-            background-color: #3b4251;
-          }
+            background-color: utils.$cool-gray;
+            color: utils.$light-silver;
+            border-color: utils.$dark-charcoal;
+
+            &:hover {
+                background-color: utils.$gunmetal;
+            }
         }
-      }
-      
-  }
+    }
+}

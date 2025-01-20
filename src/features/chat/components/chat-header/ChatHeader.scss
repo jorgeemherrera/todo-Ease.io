@@ -27,25 +27,25 @@
                 top: 50%;
                 transform: translateY(-50%);
                 width: utils.pxToRem(20px);
-                color: #6c757d;
+                color: utils.$slate-gray;
             }
 
             .search-input {
                 padding: utils.pxToRem(8px) utils.pxToRem(8px) utils.pxToRem(8px) utils.pxToRem(32px);
-                border: utils.pxToRem(1px) solid #ccc;
+                border: utils.pxToRem(1px) solid utils.$light-gray-alt;
                 border-radius: utils.pxToRem(8px);
                 width: 100%;
                 font-size: utils.pxToRem(14px);
 
                 &:focus {
                     outline: none;
-                    border-color: #007bff;
+                    border-color: utils.$sky-blue;
                 }
 
                 [data-theme="dark"] & {
-                    background-color: #2d3748;
-                    border-color: #4a5568;
-                    color: #e2e8f0;
+                    background-color: utils.$dark-charcoal;
+                    border-color: utils.$cool-gray;
+                    color: utils.$light-silver;
                 }
             }
         }
@@ -62,18 +62,18 @@
                 .filter-icon {
                     width: utils.pxToRem(24px);
                     height: utils.pxToRem(24px);
-                    color: #6c757d;
+                    color: utils.$slate-gray;
                     z-index: 100;
 
                     &:hover {
-                        color: #7F5FFF;
+                        color: utils.$amethyst-alt;
                     }
 
                     [data-theme="dark"] & {
-                        color: #e2e8f0;
+                        color: utils.$light-silver;
 
                         &:hover {
-                            color: #7F5FFF;
+                            color: utils.$amethyst-alt;
                         }
                     }
                 }
@@ -83,16 +83,16 @@
                 position: absolute;
                 top: utils.pxToRem(32px);
                 right: 0;
-                background-color: #fff;
-                border: utils.pxToRem(1px) solid #ccc;
+                background-color: utils.$white;
+                border: utils.pxToRem(1px) solid utils.$light-gray-alt;
                 border-radius: utils.pxToRem(8px);
                 padding: utils.pxToRem(8px);
                 box-shadow: 0 utils.pxToRem(4px) utils.pxToRem(12px) rgba(0, 0, 0, 0.1);
 
                 [data-theme="dark"] & {
-                    background-color: #2d3748;
-                    border-color: #4a5568;
-                    color: white;
+                    background-color: utils.$dark-charcoal;
+                    border-color: utils.$cool-gray;
+                    color: utils.$white;
                 }
 
                 button {
@@ -107,12 +107,12 @@
                     color: inherit;
 
                     &:hover {
-                        background-color: #7F5FFF;
+                        background-color: utils.$amethyst-alt;
                         border-radius: 8px;
-                        color: white;
+                        color: utils.$white;
 
                         [data-theme="dark"] & {
-                            background-color: #7F5FFF;
+                            background-color: utils.$amethyst-alt;
                         }
                     }
                 }

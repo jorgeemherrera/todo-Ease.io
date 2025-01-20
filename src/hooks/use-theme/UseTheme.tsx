@@ -6,15 +6,15 @@ const UseTheme = () => {
   const [theme, setTheme] = useState<Theme>("light");
 
   useEffect(() => {
-    const fetchTheme = async () => {
-      const storedTheme = await getThemeFromDB();
-      if (storedTheme) {
-        applyTheme(storedTheme);
-      }
-    };
     fetchTheme();
   }, []);
 
+  const fetchTheme = async () => {
+    const storedTheme = await getThemeFromDB();
+    if (storedTheme) {
+      applyTheme(storedTheme);
+    }
+  };
   const applyTheme = (newTheme: Theme) => {
     setTheme(newTheme);
     document.documentElement.setAttribute("data-theme", newTheme);

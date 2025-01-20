@@ -15,7 +15,7 @@
 }
 
 .modal {
-  background-color: #fff;
+  background-color: utils.$white;
   border-radius: utils.pxToRem(12px);
   width: utils.pxToRem(344px);
   max-height: 95vh;
@@ -25,25 +25,25 @@
   position: relative;
   animation: modalIn 0.3s ease-out;
 
-  @include utils.media-xs(){
+  @include utils.media-xs() {
     width: utils.pxToRem(344px);
   }
-  @include utils.media-sm(){
+  @include utils.media-sm() {
     width: utils.pxToRem(544px);
   }
-  @include utils.media-md(){
+  @include utils.media-md() {
     width: utils.pxToRem(644px);
   }
-  @include utils.media-lg(){
+  @include utils.media-lg() {
     width: utils.pxToRem(644px);
   }
-  @include utils.media-xl(){
+  @include utils.media-xl() {
     width: utils.pxToRem(644px);
   }
-  
+
   [data-theme="dark"] & {
-    background-color: #2d3748;
-    color: #e2e8f0;
+    background-color: utils.$dark-charcoal;
+    color: utils.$light-silver;
   }
 }
 
@@ -51,16 +51,16 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: utils.pxToRem(1px) solid #eee;
+  border-bottom: utils.pxToRem(1px) solid utils.$gainsboro-alt;
   height: utils.pxToRem(40px);
 
   .modal-title {
     font-size: utils.pxToRem(24px);
     font-weight: bold;
-    color: #333;
+    color: utils.$dim-gray;
 
     [data-theme="dark"] & {
-      color: #e2e8f0;
+      color: utils.$light-silver;
     }
   }
 }
@@ -68,11 +68,11 @@
 .modal-content {
   margin-top: utils.pxToRem(20px);
   font-size: utils.pxToRem(16px);
-  color: #555;
+  color: utils.$medium-gray;
   line-height: 1.6;
 
   [data-theme="dark"] & {
-    color: #cbd5e0;
+    color: utils.$soft-gray;
   }
 }
 
@@ -88,18 +88,18 @@
   background: none;
   border: none;
   font-size: utils.pxToRem(24px);
-  color: #666;
+  color: utils.$gray;
   cursor: pointer;
 
   &:hover {
-    color: #d9534f;
+    color: utils.$danger-red;
   }
 
   [data-theme="dark"] & {
-    color: #cbd5e0;
+    color: utils.$soft-gray;
 
     &:hover {
-      color: #e53e3e;
+      color: utils.$tomato;
     }
   }
 }

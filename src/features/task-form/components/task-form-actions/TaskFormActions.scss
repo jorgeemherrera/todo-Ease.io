@@ -13,38 +13,39 @@
         transition: background-color 0.3s;
 
         &.cancel {
-            background-color: #e0e0e0;
+            background-color: utils.$grayish-white;
             border: none;
 
             &:hover {
-                background-color: #d6d6d6;
+                background-color: utils.$silver;
             }
 
             [data-theme="dark"] & {
-                background-color: #4a5568;
-                color: #e2e8f0;
+                background-color: utils.$cool-gray;
+                color: utils.$light-silver;
 
                 &:hover {
-                    background-color: #3b4251;
+                    background-color: utils.$gunmetal;
                 }
             }
         }
 
         &.save {
-            background-color: #6200ee;
-            color: #fff;
+            background-color: utils.$violet;
+            color: utils.$white;
             border: none;
             cursor: pointer;
             transition: background-color 0.3s;
 
             &.save:hover {
-                background-color: #4b00c9;
+                background-color: utils.$electric-purple;
             }
+
             [data-theme="dark"] & {
-                background-color: #7f5fff;
+                background-color: utils.$amethyst;
 
                 &:hover {
-                    background-color: #6a46d4;
+                    background-color: utils.$lavender-blue;
                 }
             }
         }

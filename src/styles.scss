@@ -7,10 +7,13 @@ body {
     padding: 0;
     box-sizing: border-box;
     font-family: 'Rubik', 'sans-serif';
-    overflow: hidden;
-
     [data-theme="dark"] &{
         background-color: #262c39;
+    }
+
+    @media (min-width: 1024px){
+        overflow: hidden;
+        
     }
 }
 

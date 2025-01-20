@@ -4,13 +4,14 @@ import { Sidebar } from "@features/sidebar/components";
 import {
   updateTaskChecklist,
   updateTask,
+  Task,
 } from "@store/task-slice";
 
 const SidebarContainer: React.FC = () => {
   const dispatch = useDispatch();
   const selectedTask = useSelector((state: RootState) =>
     state.tasks.tasks.find(
-      (task: { id: number }) => task.id === state.tasks.selectedTaskId
+      (task: Task) => task.id === state.tasks.selectedTaskId
     )
   );
 
@@ -33,3 +34,4 @@ const SidebarContainer: React.FC = () => {
 };
 
 export default SidebarContainer;
+

@@ -1,28 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { saveTaskToDB, getTasksFromDB, deleteTaskFromDB } from '../utils/indexed-db/indexedDb';
-
-interface ChecklistItem {
-  id: string;
-  label: string;
-  checked: boolean;
-  dueDate?: string;
-}
-
-export interface Task {
-    id: string;
-    title: string;
-    description: string;
-    dueDate?: string;
-    createdAt: string;
-    status: 'Open' | 'In Progress' | 'Completed' | 'Overdue';
-    checklist: ChecklistItem[];
-  }
-  
-
-interface TaskState {
-  tasks: Task[];
-  selectedTaskId: string | null;
-}
+import { saveTaskToDB, deleteTaskFromDB } from '../utils/indexed-db/indexedDb';
+import { Task, TaskState } from './interfaces';
 
 const initialState: TaskState = {
   tasks: [],

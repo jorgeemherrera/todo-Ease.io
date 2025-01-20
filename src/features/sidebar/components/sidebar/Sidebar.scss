@@ -3,13 +3,12 @@
 .sidebar {
   width: 50%;
   max-height: 80%;
-  background-color: #fff;
+  background-color: utils.$white;
   padding: utils.pxToRem(20px);
-  overflow-y: auto;
   border-bottom-left-radius: utils.pxToRem(12px);
   [data-theme="dark"] & {
     background-color: #2d3748;
-    color: #e2e8f0;
+    color: utils.$light-silver;
   }
 
   @include utils.media-ltlg(){

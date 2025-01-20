@@ -7,18 +7,18 @@
     overflow-y: auto;
     height: utils.pxToRem(400px);
     scrollbar-width: thin;
-    scrollbar-color: #ccc #f7f7f7;
+    scrollbar-color: utils.$light-gray-alt utils.$alabaster;
 
     &::-webkit-scrollbar {
         width: utils.pxToRem(8px);
     }
 
     &::-webkit-scrollbar-thumb {
-        background-color: #ccc;
+        background-color: utils.$light-gray-alt;
         border-radius: utils.pxToRem(4px);
     }
 }
 
-.chat-empty{
+.chat-empty {
     text-align: center;
 }

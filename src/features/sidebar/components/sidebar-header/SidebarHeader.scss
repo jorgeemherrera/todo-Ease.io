@@ -3,15 +3,15 @@
 .sidebar-header {
     font-size: utils.pxToRem(28px);
     font-weight: 700;
-    color: #1a202c;
+    color: utils.$charcoal;
 
     [data-theme="dark"] & {
-      color: #e2e8f0;
+        color: utils.$light-silver;
     }
-  }
+}
 
-  .sidebar-title {
+.sidebar-title {
     font-size: utils.pxToRem(24px);
     font-weight: 600;
     margin-top: utils.pxToRem(8px);
-  }
+}

@@ -64,8 +64,4 @@ a {
 	cursor: pointer;
 	text-decoration: underline;
 	text-underline-offset: 3px;
-
-	&:hover {
-		color: variables.$color-primary-indigo;
-	}
 }
