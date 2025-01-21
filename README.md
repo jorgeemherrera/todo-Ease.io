@@ -54,7 +54,7 @@ Run the app in development mode:
 
    ```bash
    npm run dev
-   Open [localhost:5173](http://localhost:5173) on your browser to view the app.
+   Open [http://localhost:5173] on your browser to view the app.
    ```
 
 ### Usage
@@ -67,10 +67,7 @@ Run the app in development mode:
 - You can use commands in the input, such as: DELETE, EDIT, CREATE.
 - You can create a task by simply entering the task title.
 
-
- ```bash
-  on your browser to view the app: [jorgeemherrera.github.io/todo-Ease.io](https://jorgeemherrera.github.io/todo-Ease.io/).
- ```
+on your browser to view the app: [jorgeemherrera.github.io/todo-Ease.io](https://jorgeemherrera.github.io/todo-Ease.io/).
 
 ### Customization
 
