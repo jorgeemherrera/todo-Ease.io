@@ -18,6 +18,23 @@ const Input: React.FC<InputProps> = ({
     }
   }, [deleteConfirmation]);
 
+  const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const input = e.currentTarget.value.trim();
+    const action = input.split(" ")[0].toUpperCase();
+
+    if (["CREAR", "EDITAR", "BORRAR"].includes(action)) {
+      onCommandChange(action, input);
+      setHelpVisible(false);
+    } else {
+      onCommandChange("", "");
+      setHelpVisible(true);
+    }
+
+    if (action !== "BORRAR") {
+      setDeleteConfirmation(false);
+    }
+  };
+
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter") {
       const input = e.currentTarget as HTMLInputElement;
@@ -35,23 +52,10 @@ const Input: React.FC<InputProps> = ({
       }
 
       onCommandExecute(action.toUpperCase(), title);
+        input.value = "";
 
-      input.value = "";
       onCommandChange("", "");
       setDeleteConfirmation(false);
-    } else {
-      const input = e.currentTarget.value.trim();
-      const action = input.split(" ")[0].toUpperCase();
-
-      if (["CREAR", "EDITAR", "BORRAR"].includes(action)) {
-        onCommandChange(action, input);
-        setHelpVisible(false);
-      } else {
-        onCommandChange("", "");
-        setHelpVisible(true);
-      }
-
-      if (action !== "BORRAR") setDeleteConfirmation(false);
     }
   };
 
@@ -61,6 +65,7 @@ const Input: React.FC<InputProps> = ({
         type="text"
         className={`chat-input ${command.toLowerCase()}`}
         placeholder="Escribe un comando (CREAR, EDITAR, BORRAR)"
+        onInput={handleInput}
         onKeyDown={handleKeyDown}
         onFocus={() => setHelpVisible(true)}
         onBlur={() => setHelpVisible(false)}

@@ -15,17 +15,24 @@ const Chat: React.FC<ChatProps> = ({ messages, onEnter, onEdit, onDelete, onSele
   const tasks = useSelector((state: RootState) => state.tasks.tasks);
 
   const filteredTasks = useMemo(() => {
-    return tasks.filter(({ title, status }: { title: string; status: string }) => {
-      const matchesSearch = title.toLowerCase().includes(searchQuery.toLowerCase());
+    return tasks.filter((task) => {
+      const matchesSearch = task.title.toLowerCase().includes(searchQuery.toLowerCase());
+  
+      const isOverdue =
+        task.dueDate &&
+        new Date(task.dueDate).getTime() < new Date().setHours(0, 0, 0, 0);
+  
       const matchesFilter =
         selectedFilter === "all" ||
-        (selectedFilter === "overdue" && status === "Overdue") ||
-        (selectedFilter === "completed" && status === "Completed") ||
-        (selectedFilter === "in-progress" && status === "In Progress") ||
-        (selectedFilter === "open" && status === "Open");
+        (selectedFilter === "overdue" && isOverdue) ||
+        (selectedFilter === "completed" && task.status === "Completed") ||
+        (selectedFilter === "in-progress" && task.status === "In Progress") ||
+        (selectedFilter === "open" && task.status === "Open");
+  
       return matchesSearch && matchesFilter;
     });
   }, [tasks, searchQuery, selectedFilter]);
+  
 
   const handleCommandExecution = (action: string, title: string) => {
     const task = messages.find((msg) => msg.title === title);

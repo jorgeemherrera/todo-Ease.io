@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import TaskForm from "@features/task-form/components/task-form/TaskForm";
 import { getTasksFromDB } from "@utils/indexed-db/indexedDb";
-import { Chat, Message, Task } from "@features/chat";
+import { Chat, ChatMessage } from "@features/chat";
 import { RootState } from "@store/store";
 import {
   addTask,
@@ -23,7 +23,7 @@ const Home = () => {
     (state: RootState) => state.tasks.selectedTaskId
   );
   const selectedTask = tasks.find(
-    (task: { id: number }) => task.id === selectedTaskId
+    (task: { id: string }) => task.id === selectedTaskId
   );
 
   const [isModalOpen, setModalOpen] = useState(false);
@@ -79,26 +79,30 @@ const Home = () => {
     <div className="home">
       <Header />
       <div className="home-content">
-        <SidebarContainer/>  
+        <SidebarContainer />
         <Chat
-          messages={tasks.map((task:Task): Message => ({
-            id: task.id as string,
-            author: "Tú",
-            time: task.dueDate || "Sin fecha",
-            createdAt: task.createdAt,
-            title: task.title,
-            content: task.description || "",
-            isTaskOverdue: !!(
-              task.dueDate &&
-              task.dueDate < new Date().toISOString().split("T")[0]
-            ),
-            hasOverdueItems: task.checklist.some(
-              (item: { dueDate?: string; checked: boolean; }) =>
-                item.dueDate &&
-                item.dueDate < new Date().toISOString().split("T")[0] &&
-                !item.checked
-            ),
-          }))}
+          messages={tasks.map(
+            (task): ChatMessage =>
+              ({
+                id: task.id as string,
+                author: "Tú",
+                time: task.dueDate || "Sin fecha",
+                createdAt: task.createdAt,
+                title: task.title,
+                content: task.description || "",
+                status: task.status,
+                isTaskOverdue: !!(
+                  task.dueDate &&
+                  task.dueDate < new Date().toISOString().split("T")[0]
+                ),
+                hasOverdueItems: task.checklist.some(
+                  (item) =>
+                    item.dueDate &&
+                    new Date(item.dueDate).getTime() < new Date().setHours(0, 0, 0, 0) &&
+                    !item.checked
+                ),                               
+              } as ChatMessage)
+          )}
           onEnter={(title) => handleOpenModal(title)}
           onEdit={(taskId) => {
             handleOpenModal("", true);

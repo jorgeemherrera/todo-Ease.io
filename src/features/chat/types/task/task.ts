@@ -1,11 +1,9 @@
-import { Key } from "react";
-
-export type Task = {
-    id: Key | null | undefined;
+export interface Task {
+    id: string;
     title: string;
-    dueDate: string;
-    description: string;
+    description?: string;
+    dueDate?: string;
     createdAt: string;
+    checklist: { dueDate?: string; checked: boolean }[];
     status: string;
-    checklist: { checked: boolean }[];
-};
+  }

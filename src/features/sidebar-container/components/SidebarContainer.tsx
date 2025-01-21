@@ -4,8 +4,8 @@ import { Sidebar } from "@features/sidebar/components";
 import {
   updateTaskChecklist,
   updateTask,
-  Task,
 } from "@store/task-slice";
+import { Task } from "@features/chat";
 
 const SidebarContainer: React.FC = () => {
   const dispatch = useDispatch();
@@ -21,7 +21,7 @@ const SidebarContainer: React.FC = () => {
       updateTaskChecklist({ taskId: selectedTask.id, checklistId, checked })
     );
 
-  const handleStatusChange = (status: string) =>
+  const handleStatusChange = (status: 'Open' | 'In Progress' | 'Completed' | 'Overdue') =>
     selectedTask && dispatch(updateTask({ ...selectedTask, status }));
 
   return (
