@@ -67,6 +67,11 @@ Run the app in development mode:
 - You can use commands in the input, such as: DELETE, EDIT, CREATE.
 - You can create a task by simply entering the task title.
 
+
+ ```bash
+  on your browser to view the app: [jorgeemherrera.github.io/todo-Ease.io](https://jorgeemherrera.github.io/todo-Ease.io/).
+ ```
+
 ### Customization
 
 Feel free to customize the app to suit your needs. You can modify the available items, change, and styles based on your preferences.
