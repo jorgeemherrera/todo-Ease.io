@@ -27,12 +27,12 @@ Make sure you have Node.js (upper than v18) and npm installed on your machine.
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/jorgeemherrera/archivista-test
+   git clone https://github.com/jorgeemherrera/todo-Ease.io
    ```
 2. Navigate to the project directory:
 
    ```bash
-   cd archivista-test
+   cd todo-Ease.io
    ```
 
 3. Install dependencies:
