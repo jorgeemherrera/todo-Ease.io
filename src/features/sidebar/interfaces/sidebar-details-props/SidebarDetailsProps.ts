@@ -1,6 +1,6 @@
 export interface SidebarDetailsProps {
   task: {
-    description: string;
+    description?: string;
     dueDate?: string;
     status: "Open" | "In Progress" | "Completed" | "Overdue";
   };

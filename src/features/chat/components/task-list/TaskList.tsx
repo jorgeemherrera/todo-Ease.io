@@ -14,7 +14,7 @@ const TaskList: React.FC<TaskListProps> = ({ tasks, onEdit, onDelete, onSelect }
               author: "Sistema",
               title: task.title,
               time: task.dueDate || "Sin fecha",
-              content: task.description,
+              content: task.description || "",
               createdAt: task.createdAt,
               isTaskOverdue: task.status === "Overdue",
               hasOverdueItems: task.checklist.some(({ checked }) => !checked),

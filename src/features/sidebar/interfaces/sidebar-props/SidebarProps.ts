@@ -1,5 +1,4 @@
-import { Task } from "@store/task-slice";
-
+import { Task } from "@features/chat";
 export interface SidebarProps {
     task?: Task;
     onChecklistUpdate: (checklistId: string, checked: boolean) => void;

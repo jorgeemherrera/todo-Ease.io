@@ -11,7 +11,7 @@ const SidebarChecklist: React.FC<SidebarCheckListProps> = ({ checklist, onCheckl
             <input
               type="checkbox"
               checked={item.checked}
-              onChange={(e) => onChecklistUpdate(item.id, e.target.checked)}
+              onChange={(e) => onChecklistUpdate(item.id || '', e.target.checked)}
             />
             <span className="custom-checkbox-label">{item.label}</span>
           </label>

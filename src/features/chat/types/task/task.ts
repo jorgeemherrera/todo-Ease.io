@@ -5,5 +5,5 @@ export interface Task {
     dueDate?: string;
     createdAt: string;
     checklist: { dueDate?: string; checked: boolean }[];
-    status: string;
+    status: "Open" | "In Progress" | "Completed" | "Overdue"; 
   }

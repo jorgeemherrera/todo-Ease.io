@@ -40,20 +40,20 @@ const TaskFormChecklist: React.FC<TaskFormChecklistProps> = ({
             <input
               type="checkbox"
               checked={item.checked}
-              onChange={(e) => handleItemChange(item.id, "checked", e.target.checked)}
+              onChange={(e) => handleItemChange(item.id || '', "checked", e.target.checked)}
             />
             <input
               type="text"
               value={item.label}
               placeholder="Nombre del ítem"
-              onChange={(e) => handleItemChange(item.id, "label", e.target.value)}
+              onChange={(e) => handleItemChange(item.id || '', "label", e.target.value)}
             />
             <input
               type="date"
               value={item.dueDate || ""}
-              onChange={(e) => handleItemChange(item.id, "dueDate", e.target.value)}
+              onChange={(e) => handleItemChange(item.id || '', "dueDate", e.target.value)}
             />
-            <TrashIcon onClick={() => handleItemDelete(item.id)} className="task-form-delete-btn"/>
+            <TrashIcon onClick={() => handleItemDelete(item.id || '')} className="task-form-delete-btn"/>
           </li>
         ))}
       </ul>

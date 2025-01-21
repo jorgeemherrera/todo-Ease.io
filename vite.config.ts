@@ -5,6 +5,7 @@ import path from 'path';
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
+  base: 'https://jorgeemherrera.github.io/todo-Ease.io/',
   resolve: {
     alias: {
       '@shared': path.resolve(__dirname, 'src/shared'),
