@@ -1,50 +1,80 @@
-# React + TypeScript + Vite
+# EASE.IO TECHNICAL TEST
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a React application that integrates SASS and TypeScript to create a dynamic to-do list. The app allows users to create tasks with proper classification, such as Pending, In Progress, Open, and Completed. Tasks can also include a checklist with an expiration date. Users can filter tasks by their classification for better organization. The application features a modern UI with a toggle for dark and light modes, ensuring a seamless user experience. Additionally, all data is stored locally using IndexedDB, ensuring persistence even when the app is refreshed or accessed offline.
 
-Currently, two official plugins are available:
+## Table of Contents
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+  - [Running the App](#running-the-app)
+- [Usage](#usage)
+- [Customization](#customization)
+- [Contributing](#contributing)
+- [License](#license)
 
-## Expanding the ESLint configuration
+## Getting Started
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+### Prerequisites
 
-- Configure the top-level `parserOptions` property like this:
+Make sure you have Node.js (upper than v18) and npm installed on your machine.
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+- Node.js: [https://nodejs.org/](https://nodejs.org/)
+- npm: [https://www.npmjs.com/](https://www.npmjs.com/)
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+### Installation
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+1. Clone the repository:
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+   ```bash
+   git clone https://github.com/jorgeemherrera/archivista-test
+   ```
+2. Navigate to the project directory:
+
+   ```bash
+   cd archivista-test
+   ```
+
+3. Install dependencies:
+
+   check the version of node with node -v or nvm list 
+
+   ```bash
+   nvm use 18 -> use minimum Node.js v18.x.x version
+   ```
+
+   Next install dependencies
+
+   ```bash
+   npm install
+   ```
+### Running the App
+
+Run the app in development mode:
+
+   ```bash
+   npm run dev
+   Open [localhost:5173](http://localhost:5173) on your browser to view the app.
+   ```
+
+### Usage
+
+- You can search for tasks by title.
+- You can filter tasks by different statuses: Open, Completed, Expired, In Progress.
+- In the navbar, you can switch between Light/Dark themes.
+- You can create tasks with a title, description, checklist, and due date.
+- You can update task statuses from the sidebar.
+- You can use commands in the input, such as: DELETE, EDIT, CREATE.
+- You can create a task by simply entering the task title.
+
+### Customization
+
+Feel free to customize the app to suit your needs. You can modify the available items, change, and styles based on your preferences.
+
+### Contributing
+
+Contributions are welcome! If you find any issues or have suggestions for improvement, please open an issue or create a pull request.
+
+### License
+
+This project is licensed under the MIT License.
