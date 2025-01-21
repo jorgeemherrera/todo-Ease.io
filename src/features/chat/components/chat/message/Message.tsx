@@ -58,7 +58,7 @@ const Message: React.FC<MessageProps> = ({
           <strong>Vence:</strong> {message.time}
         </p>
         {!message.isTaskOverdue && message.hasOverdueItems && (
-          <span className="message-status warning">Checklist vencido</span>
+          <span className="message-status warning">Checklist incompleto</span>
         )}
         <span className={`message-status-tag ${status.toLowerCase()}`}>
           {statusTranslations[status] || status}
