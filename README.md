@@ -2,6 +2,8 @@
 
 This is a React application that integrates SASS and TypeScript to create a dynamic to-do list. The app allows users to create tasks with proper classification, such as Pending, In Progress, Open, and Completed. Tasks can also include a checklist with an expiration date. Users can filter tasks by their classification for better organization. The application features a modern UI with a toggle for dark and light modes, ensuring a seamless user experience. Additionally, all data is stored locally using IndexedDB, ensuring persistence even when the app is refreshed or accessed offline.
 
+🔗 **Live Demo:** [jorgeemherrera.github.io/todo-Ease.io](https://jorgeemherrera.github.io/todo-Ease.io/)
+
 ## Table of Contents
 
 - [Getting Started](#getting-started)
@@ -66,8 +68,6 @@ Run the app in development mode:
 - You can update task statuses from the sidebar.
 - You can use commands in the input, such as: DELETE, EDIT, CREATE.
 - You can create a task by simply entering the task title.
-
-on your browser to view the app: [jorgeemherrera.github.io/todo-Ease.io](https://jorgeemherrera.github.io/todo-Ease.io/).
 
 ### Customization
 
